@@ -13,3 +13,5 @@ bet the desired amount of cash
 click ENTER
 check if you won
 continue playing
+
+PLEASE FEEL FREE TO ADD ANY EXTRA FEATURES TO THE GAME
