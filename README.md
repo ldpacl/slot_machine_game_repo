@@ -1,4 +1,4 @@
-                                                                                                  Slot Machine Game
+$$$  SLOT MACHINE GAME  $$$
 
 This is a game built in python for beginners. The python code contains all the fundamentals of python not going to avanced topics like Data structures and Algorithms.
 
@@ -14,4 +14,4 @@ click ENTER
 check if you won
 continue playing
 
-PLEASE FEEL FREE TO ADD ANY EXTRA FEATURES TO THE GAME
+** PLEASE FEEL FREE TO ADD ANY EXTRA FEATURES TO THE GAME **
