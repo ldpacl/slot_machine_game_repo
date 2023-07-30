@@ -1,5 +1,6 @@
 import random
 
+#You can change these values
 MAX_LINES = 3
 MAX_BET = 100
 MIN_BET = 1
@@ -7,6 +8,7 @@ MIN_BET = 1
 ROWS = 3
 COLS = 3
 
+#This decides how many times a symbol can appear in a coloumn
 symbol_count = {
     "A": 2,
     "B": 4,
@@ -14,6 +16,7 @@ symbol_count = {
     "D": 8
 }
 
+#These are the points alloted to each symbol
 symbol_values = {
     "A": 5,
     "B": 4,
@@ -21,6 +24,7 @@ symbol_values = {
     "D": 2
 }
 
+#This is for the spin
 def spin(balance):
     lines = get_number_of_lines()
     while True:
@@ -40,60 +44,53 @@ def spin(balance):
 
     return winnings - total_bet
 
+#This is the math behind calculating the winnings
 def check_winnings(coloumns, lines, bet, values):
     winnings = 0
     winning_lines = []
-    for line in range(lines):
-        symbol = coloumns[0][line]
+    for line in range(lines): 
+        symbol = coloumns[0][line] 
         for coloumn in coloumns:
-            symbol_to_check = coloumn[line]
+            symbol_to_check = coloumn[line] #This takes the first symbol in every row
             if symbol != symbol_to_check:
                 break
         else:
-            winnings = winnings + values[symbol] * bet
+            winnings = winnings + values[symbol] * bet #This takes the help of symbol_values dictionary to allocate points
             winning_lines.append(line + 1)
+    if winning_lines == []:
+        winning_lines = ["None"]
     return winnings, winning_lines
 
+#This gets the symbols ready in all the coloumns for the spin
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
-    for symbol, symbol_count in symbols.items():
+    for symbol, symbol_count in symbols.items(): #Using the .items method in dictionaries we get both symbol and the count associated with it
         for _ in range (symbol_count):
-            all_symbols.append(symbol)
+            all_symbols.append(symbol) #This prepares the all_symbols list
 
     coloumns = []
-    for _ in range(cols):
+    for _ in range(cols): #This is for every coloumn in the spin. _ is used instead of a variable to save up space 
         coloumn = []
         current_symbols = all_symbols[:] #making a duplicate of all_symbols
-        for _ in range(rows):
-            value = random.choice(current_symbols)
-            current_symbols.remove(value)
+        for _ in range(rows): #This is for every row in that particular coloumn
+            value = random.choice(current_symbols) #Using random function
+            current_symbols.remove(value) #This prevents duplicates
             coloumn.append(value)
 
-        coloumns.append(coloumn)
+        coloumns.append(coloumn) #This adds one coloumn to the nested list "coloumns"
     return coloumns
 
+#Printing the actual slot machine
 def print_slot_machine(coloumns):
-    for row in range(len(coloumns[0])):
+    for row in range(len(coloumns[0])): #This is because all the coloumns are of the same length
         for i,coloumn in enumerate(coloumns):
             if i == len(coloumns)-1:
-                print(coloumn[row], end=" ")
+                print(coloumn[row], end=" ") #This prints the values of each coloumn in a given row
             else:
                 print(coloumn[row], end=" | ")
         print()
 
-def deposit():
-    while True:
-        amount = input("What would like to deposit? $$  ")
-        if amount.isdigit():
-            amount = int(amount)
-            if amount > 0:
-                break
-            else:
-                print("Amount must be greater than 0!!")
-        else:
-            print("Enter valid amount")
-    return amount
-
+#This prompt asks the player for the number of lines to bet on
 def get_number_of_lines():
     while True:
         lines = input("How many lines do you wanna bet on (" + str(MAX_LINES) + ")?")
@@ -106,7 +103,8 @@ def get_number_of_lines():
         else:
             print("Enter a number")
     return lines
-    
+
+#This prompt asks the player for the bet amount
 def get_bet():
     while True:
         bet = input("How much would you like to bet on each line? $$  ")
@@ -119,6 +117,20 @@ def get_bet():
         else:  
             print("Enter valid amount")
     return bet
+
+#This is the first prompt asking for the deposit
+def deposit():
+    while True:
+        amount = input("What would like to deposit? $$  ")
+        if amount.isdigit():
+            amount = int(amount)
+            if amount > 0:
+                break
+            else:
+                print("Amount must be greater than 0!!")
+        else:
+            print("Enter valid amount")
+    return amount
 
 def main():
     balance = deposit()
