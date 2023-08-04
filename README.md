@@ -8,12 +8,12 @@ This game is configured to run in the terminal.
 
 You can play this game by downloading it into your local system and running it.
 
-How to play the game?
-deposit your cash
-bet on desired number of lines
-bet the desired amount of cash 
-click ENTER
-check if you won
-continue playing
+<p>How to play the game?</p>
+<p>deposit your cash</p>
+<p>bet on desired number of lines</p>
+<p>bet the desired amount of cash </p>
+<p>click ENTER</p>
+<p>check if you won</p>
+<p>continue playing</p>
 
 ** PLEASE FEEL FREE TO ADD ANY EXTRA FEATURES TO THE GAME **
