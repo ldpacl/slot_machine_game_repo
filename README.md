@@ -2,7 +2,7 @@ SLOT MACHINE GAME
 
 
 
-This is a game built in python for beginners. The python code contains all the fundamentals of python not going to avanced topics like Data structures and Algorithms.
+This is a game built in python for beginners. The python code contains all the fundamentals of python not going to advanced topics like Data structures and Algorithms.
 
 This game is configured to run in the terminal.
 
